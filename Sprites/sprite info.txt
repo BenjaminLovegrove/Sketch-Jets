@@ -1,0 +1,11 @@
+Sprites: 1000x1000 transparency png
+
+Shadows:
+
+Players and Enemies
+Opacity 75%
+Angle 120deg
+Distance 35
+Spread 0%
+Size 20px
+noise 0%
