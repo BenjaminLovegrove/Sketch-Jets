@@ -1,0 +1,6 @@
+Enemies and players = 128*x
+Drops and objects = 64*x
+Planets and large objects 256x256
+Boss = TBA
+
+Camera = 8 (atm... Change this instead of sprite sizes.)
