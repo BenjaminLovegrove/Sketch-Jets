@@ -28,7 +28,7 @@ void Update () {
 		
 	if (x != 0.0f || y != 0.0f) {
 		angle = Mathf.Atan2 (y, x) * Mathf.Rad2Deg;
-		transform.eulerAngles = new Vector2 (-angle + 90, 90);
+		transform.eulerAngles = new Vector3(0, 0, angle);
 	}
 
 	//fires
