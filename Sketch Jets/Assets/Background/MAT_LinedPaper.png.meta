@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: d53e5866d7195894ab7124f2d5392012
+guid: 6a5a59f71f585b749bda03963d61edb8
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Paper bg2
+    21300000: MAT_LinedPaper
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
