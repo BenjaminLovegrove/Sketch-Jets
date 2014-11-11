@@ -1,6 +1,13 @@
+Res
 Enemies and players = 128*x
 Drops and objects = 64*x
-Planets and large objects 256x256
+Planets and large objects 516x516 (maybe 1024 and resize down for multiple planet sizes?)
 Boss = TBA
 
-Camera = 8 (atm... Change this instead of sprite sizes.)
+Camera size = 10 (atm... Change this instead of sprite sizes.)
+
+Z location
+Players and units = 0
+Planets = .5
+Turrets = .25 (or 0 and collidable?)
+BG = 1

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\P1Controller.cs" />
      <Compile Include="Assets\Scripts\P2Controller.cs" />
+     <Compile Include="Assets\Scripts\PlanetGravity.cs" />
      <None Include="Assets\Asset Sizes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
