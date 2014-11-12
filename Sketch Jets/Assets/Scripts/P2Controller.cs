@@ -14,6 +14,7 @@ public GameObject primaryWeapon;
 public int numEquip = 1;
 
 
+
 void Update () {
 		
 	Vector3 moveDir = new Vector3 ();
@@ -31,16 +32,18 @@ void Update () {
 		transform.eulerAngles = new Vector3(0, 0, angle);
 	}
 
-	//fires
+		//fires
 	if (Input.GetButtonDown ("Fire2")) {
-		Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
-	}
+			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+		}
 	if (primaryWeapon == bullet2 && Input.GetButtonDown ("Switch2")) {
 		primaryWeapon = rocket;
 		print ("rocket equiped");
-	} else if (primaryWeapon == rocket && Input.GetButtonDown ("Switch2")) {
+		} 
+
+	else if (primaryWeapon == rocket && Input.GetButtonDown ("Switch2")) {
 		primaryWeapon = bullet2;
 		print ("bullet equiped");
+		}
 	}
-}
 }
