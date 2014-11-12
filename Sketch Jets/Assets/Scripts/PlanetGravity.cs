@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlanetGravity : MonoBehaviour {
 
+	public float planetSize = 8.0f;
 	public float gravPull;
 	public Vector2 direction;
 
@@ -11,6 +12,6 @@ public class PlanetGravity : MonoBehaviour {
 		gravPull = Vector3.Distance (transform.position, col.transform.position);
 		direction = transform.position - col.transform.position;
 
-		col.rigidbody2D.AddForce (direction * 8 / gravPull);
+		col.rigidbody2D.AddForce (direction * planetSize / gravPull);
 	}
 }

@@ -26,7 +26,6 @@ public GameObject primaryWeapon;
 
 		Movement();
 		Fire();
-		Pickups();
 		SwitchWeps();
 	}
 
@@ -69,12 +68,7 @@ public GameObject primaryWeapon;
 		}
 	}
 
-
-	void Pickups(){
-		
-	}
-
-
+	
 	void SwitchWeps(){
 
 		//Equips Rockets
@@ -139,6 +133,24 @@ public GameObject primaryWeapon;
 		else if (primaryWeapon == gauss && rocketPickedUp == false && laserPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = laser;
 			print ("Laser equiped");	
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D col) {
+		
+		if (col.gameObject.tag ==  "Rockets"){
+			rocketPickedUp = true;
+			Destroy (col.gameObject);
+		}
+
+		if (col.gameObject.tag ==  "Lasers"){
+			laserPickedUp = true;
+			Destroy (col.gameObject);
+		}
+
+		if (col.gameObject.tag ==  "GaussCannon"){
+			gaussPickedUp = true;
+			Destroy (col.gameObject);
 		}
 	}
 }
