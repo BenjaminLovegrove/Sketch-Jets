@@ -10,6 +10,9 @@ public float fireSpeed = 0.0f;
 public bool rocketPickedUp = false;
 public bool laserPickedUp = false;
 public bool gaussPickedUp = false;
+public float rocketAmmo = 0;
+public float laserAmmo = 0;
+public float gaussAmmo = 0;
 
 	//Attached Game Objects
 public GameObject bltSpn;
@@ -27,6 +30,7 @@ public GameObject primaryWeapon;
 		Movement();
 		Fire();
 		SwitchWeps();
+		OutOfAmmo();
 	}
 
 
@@ -52,20 +56,43 @@ public GameObject primaryWeapon;
 	void Fire(){
 
 		//Fires Rockets
-		if (Input.GetButtonDown("Fire1") && primaryWeapon == rocket) {
+		if (Input.GetButtonDown("Fire1") && rocketAmmo > 0 && primaryWeapon == rocket) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+			rocketAmmo --;
 		}
 		//Fires Machineguns
 		if (Input.GetButtonDown("Fire1") && primaryWeapon == machineGun) {
-		Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 		}
 		//Fires Laser
-		if (Input.GetButton("Fire1") && primaryWeapon == laser) {
+		if (Input.GetButton("Fire1") && laserAmmo > 0 && primaryWeapon == laser) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+			laserAmmo --;
 		}
-		if (Input.GetButtonDown("Fire1") && primaryWeapon == gauss) {
+		//Fires Gauss
+		if (Input.GetButtonDown("Fire1") && gaussAmmo > 0 && primaryWeapon == gauss) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
+			gaussAmmo --;
+		}
+	}
+
+
+	void OutOfAmmo(){
+		if (rocketAmmo == 0 && rocketPickedUp == true){
+			primaryWeapon = machineGun;
+			rocketPickedUp = false;
+			print ("Out of Ammo. Equiped Machinegun");
+		}
+		if (laserAmmo == 0 && laserPickedUp == true){
+			primaryWeapon = machineGun;
+			laserPickedUp = false;
+			print ("Out of Ammo. Equiped Machinegun");
+		}
+		if (gaussAmmo == 0 && gaussPickedUp == true){
+			primaryWeapon = machineGun;
+			gaussPickedUp = false;
+			print ("Out of Ammo. Equiped Machinegun");
 		}
 	}
 
@@ -141,16 +168,19 @@ public GameObject primaryWeapon;
 		
 		if (col.gameObject.tag ==  "Rockets"){
 			rocketPickedUp = true;
+			rocketAmmo = 5;
 			Destroy (col.gameObject);
 		}
 
 		if (col.gameObject.tag ==  "Lasers"){
 			laserPickedUp = true;
+			laserAmmo = 100;
 			Destroy (col.gameObject);
 		}
 
 		if (col.gameObject.tag ==  "GaussCannon"){
 			gaussPickedUp = true;
+			gaussAmmo = 2;
 			Destroy (col.gameObject);
 		}
 	}
