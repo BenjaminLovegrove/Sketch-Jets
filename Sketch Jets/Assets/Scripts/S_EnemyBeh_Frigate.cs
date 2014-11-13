@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class S_EnemyBeh_Doppler : MonoBehaviour {
+public class S_EnemyBeh_Frigate : MonoBehaviour {
 
-
-	public float Health = 50;
+	public float Health = 25;
 	public float Damage = 5;
-
-
+	
+	
 	void Update () {
 		HP();
 	}
-
+	
 	void HP (){
 		if (Health <= 0){
 			Destroy (this.gameObject);
-			print ("Doppler Down");
+			print ("Frigate Destroyed");
 		}
 	}
-
+	
 	void OnTriggerEnter2D (Collider2D col) {
 		if (col.gameObject.tag ==  "RocketRound"){
 			Health -= 25;

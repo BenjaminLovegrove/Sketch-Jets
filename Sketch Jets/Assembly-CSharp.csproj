@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\P2Controller.cs" />
      <Compile Include="Assets\Scripts\PlanetGravity.cs" />
      <Compile Include="Assets\Scripts\S_EnemyBeh_Doppler.cs" />
+     <Compile Include="Assets\Scripts\S_EnemyBeh_Frigate.cs" />
+     <Compile Include="Assets\Scripts\S_EnemyBeh_Saucer.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Gauss.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Laser.cs" />
      <Compile Include="Assets\Scripts\S_Wep_MG_Movement.cs" />
