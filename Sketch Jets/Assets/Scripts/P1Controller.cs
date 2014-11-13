@@ -66,7 +66,7 @@ public GameObject primaryWeapon;
 		if (Input.GetButtonDown("Fire1") && primaryWeapon == gauss) {
 
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
-		//NEED TO FIX!!!	this.rigidbody2D.AddForce (bltSpn.transform.position * rigidbody2D.mass * 10 / Time.fixedDeltaTime);
+			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
 		}
 	}
 
