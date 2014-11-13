@@ -1,13 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\S_EnemyBeh_Doppler.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\S_Hud.cs">
     <Files>
-      <File FileName="Assets\Scripts\P1Controller.cs" Line="152" Column="45" />
+      <File FileName="Assets\Scripts\P1Controller.cs" Line="99" Column="2" />
       <File FileName="Assets\Scripts\S_Wep_MG_Movement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlanetGravity.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\S_EnemyBeh_Doppler.cs" Line="41" Column="1" />
-      <File FileName="Assets\Scripts\S_EnemyBeh_Frigate.cs" Line="17" Column="32" />
+      <File FileName="Assets\Scripts\S_EnemyBeh_Doppler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\S_EnemyBeh_Frigate.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\S_EnemyBeh_Saucer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\S_Hud.cs" Line="43" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

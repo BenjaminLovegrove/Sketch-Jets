@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: cfcd8a49101fa494582d5c2ddbf6d716
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - RocketTex: {fileID: 2800000, guid: 73aece236ba68e845ab5e844737a5b93, type: 3}
+  - MachinegunTex: {fileID: 2800000, guid: 3baf8265fd187ea49a8136ef44b38ab6, type: 3}
+  - LaserTex: {fileID: 2800000, guid: 11258b222f3bbb54c9f9fe1704bdcc47, type: 3}
+  - GaussTex: {fileID: 2800000, guid: cd7a8aa65f06d1d4488cc09875fa4081, type: 3}
+  - weaponSelected: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

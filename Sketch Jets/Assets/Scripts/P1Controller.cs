@@ -81,16 +81,19 @@ public GameObject primaryWeapon;
 	void OutOfAmmo(){
 		if (rocketAmmo == 0 && rocketPickedUp == true){
 			primaryWeapon = machineGun;
+			Camera.main.SendMessage ("EquipMG");
 			rocketPickedUp = false;
 			print ("Out of Ammo. Equiped Machinegun");
 		}
 		if (laserAmmo == 0 && laserPickedUp == true){
 			primaryWeapon = machineGun;
+			Camera.main.SendMessage ("EquipMG");
 			laserPickedUp = false;
 			print ("Out of Ammo. Equiped Machinegun");
 		}
 		if (gaussAmmo == 0 && gaussPickedUp == true){
 			primaryWeapon = machineGun;
+			Camera.main.SendMessage ("EquipMG");
 			gaussPickedUp = false;
 			print ("Out of Ammo. Equiped Machinegun");
 		}
@@ -103,64 +106,76 @@ public GameObject primaryWeapon;
 		if (primaryWeapon == machineGun && rocketPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = rocket;
 			print ("Rocket equiped");
+			Camera.main.SendMessage ("EquipRockets");
 		}
 		//Equips Lasers from Machineguns
 		else if (primaryWeapon == machineGun && rocketPickedUp == false && laserPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = laser;
 			print ("Laser equiped");
+			Camera.main.SendMessage ("EquipLaser");
 		}
 		//Gauss from Machineguns
 		else if (primaryWeapon == machineGun && rocketPickedUp == false && laserPickedUp == false && gaussPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = gauss;
 			print ("Gauss equiped");
+			Camera.main.SendMessage ("EquipGauss");
 		}
 		
 		//Machineguns from Rockets
 		else if (primaryWeapon == rocket && laserPickedUp == false && gaussPickedUp == false && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = machineGun;
 			print ("Machinegun equiped");
+			Camera.main.SendMessage ("EquipMG");
 		}
 		//Lasers from Rockets
 		else if (primaryWeapon == rocket && laserPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = laser;
 			print ("Laser equiped");
+			Camera.main.SendMessage ("EquipLaser");
 		}
 		//Gauss from Rockets
 		else if (primaryWeapon == rocket && laserPickedUp == false && gaussPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = gauss;
 			print ("Gauss equiped");
+			Camera.main.SendMessage ("EquipGauss");
 		}
 		
 		//Machinegun from Lasers
 		else if (primaryWeapon == laser && rocketPickedUp == false && gaussPickedUp == false && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = machineGun;
 			print ("Machinegun equiped");	
+			Camera.main.SendMessage ("EquipMG");
 		}
 		//Rocket from Lasers
 		else if (primaryWeapon == laser && gaussPickedUp == false && rocketPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = rocket;
 			print ("Rocket equiped");
+			Camera.main.SendMessage ("EquipRockets");
 		}
 		//Gauss from Lasers
 		else if (primaryWeapon == laser && gaussPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = gauss;
 			print ("Gauss equiped");
+			Camera.main.SendMessage ("EquipGauss");
 		}
 		
 		//Machinegun from Gauss
 		else if (primaryWeapon == gauss && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = machineGun;
 			print ("Machinegun equiped");	
+			Camera.main.SendMessage ("EquipMG");
 		}
 		//Rocket from Gauss
 		else if (primaryWeapon == gauss && rocketPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = rocket;
-			print ("Rocket equiped");	
+			print ("Rocket equiped");
+			Camera.main.SendMessage ("EquipRockets");
 		}
 		//Laser from Gauss
 		else if (primaryWeapon == gauss && rocketPickedUp == false && laserPickedUp == true && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = laser;
 			print ("Laser equiped");	
+			Camera.main.SendMessage ("EquipLaser");
 		}
 	}
 
