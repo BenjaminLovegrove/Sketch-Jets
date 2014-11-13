@@ -13,5 +13,9 @@ public class PlanetGravity : MonoBehaviour {
 		direction = transform.position - col.transform.position;
 
 		col.rigidbody2D.AddForce (direction * planetSize / gravPull);
+
+		if (col.tag == "MachinegunRound"){
+			col.rigidbody2D.AddForce (direction * planetSize * 20 / gravPull);
+		}
 	}
 }

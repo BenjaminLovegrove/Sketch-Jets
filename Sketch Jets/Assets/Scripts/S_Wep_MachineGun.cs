@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class S_Wep_MachineGun : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+	public float bltSpd = 20;
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Start () {
+		this.rigidbody2D.AddForce (this.transform.up * rigidbody2D.mass * bltSpd / Time.fixedDeltaTime);
 	}
 }

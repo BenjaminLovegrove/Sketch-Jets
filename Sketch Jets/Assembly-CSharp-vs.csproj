@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\S_Hud.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Gauss.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Laser.cs" />
-     <Compile Include="Assets\Scripts\S_Wep_MG_Movement.cs" />
      <Compile Include="Assets\Scripts\S_Wep_MachineGun.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Rocket.cs" />
      <None Include="Assets\Asset Sizes.txt" />
