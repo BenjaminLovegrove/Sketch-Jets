@@ -57,14 +57,13 @@ public GameObject primaryWeapon;
 		}
 		//Fires Machineguns
 		if (Input.GetButtonDown("Fire1") && primaryWeapon == machineGun) {
-			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+		Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 		}
 		//Fires Laser
 		if (Input.GetButton("Fire1") && primaryWeapon == laser) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 		}
 		if (Input.GetButtonDown("Fire1") && primaryWeapon == gauss) {
-
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
 		}
