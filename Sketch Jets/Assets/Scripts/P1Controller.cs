@@ -13,6 +13,7 @@ public bool gaussPickedUp = false;
 public float rocketAmmo = 0;
 public float laserAmmo = 0;
 public float gaussAmmo = 0;
+public ParticleSystem Explosion;
 
 	//Attached Game Objects
 public GameObject bltSpn;
@@ -180,7 +181,12 @@ public GameObject primaryWeapon;
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
-		
+
+		if (col.gameObject.tag ==  "EnmyRocket"){
+			Camera.main.SendMessage ("P1TenDamage");
+			Instantiate (Explosion, col.transform.position, col.transform.rotation);
+		}
+
 		if (col.gameObject.tag ==  "Rockets"){
 			rocketPickedUp = true;
 			rocketAmmo = 5;

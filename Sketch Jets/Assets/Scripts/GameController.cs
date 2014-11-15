@@ -15,4 +15,8 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void P1TenDamage(){
+		P1Health -= 10;
+	}
 }

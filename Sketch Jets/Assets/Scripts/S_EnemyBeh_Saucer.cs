@@ -5,6 +5,7 @@ public class S_EnemyBeh_Saucer : MonoBehaviour {
 
 	public float Health = 120;
 	public float Damage = 5;
+	public ParticleSystem Explosion;
 	
 	
 	void Update () {
@@ -13,6 +14,7 @@ public class S_EnemyBeh_Saucer : MonoBehaviour {
 	
 	void HP (){
 		if (Health <= 0){
+			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
 			print ("Saucer Sacrificed!");
 		}
