@@ -12,10 +12,13 @@ public class PlanetGravity : MonoBehaviour {
 		gravPull = Vector3.Distance (transform.position, col.transform.position);
 		direction = transform.position - col.transform.position;
 
-		col.rigidbody2D.AddForce (direction * planetSize / gravPull);
+		if (col.tag == "EnemyTurret"){
 
-		if (col.tag == "MachinegunRound"){
+		}
+		else if (col.tag == "MachinegunRound"){
 			col.rigidbody2D.AddForce (direction * planetSize * 20 / gravPull);
 		}
+
+		else col.rigidbody2D.AddForce (direction * planetSize / gravPull);
 	}
 }
