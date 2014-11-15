@@ -183,7 +183,7 @@ public GameObject primaryWeapon;
 
 	void OnTriggerEnter2D (Collider2D col) {
 
-		if (col.gameObject.tag ==  "EnmyRocket"){
+		if (col.gameObject.tag ==  "EnmyMG"){
 			Camera.main.SendMessage ("P1TenDamage");
 			Instantiate (Explosion, col.transform.position, col.transform.rotation);
 		}
