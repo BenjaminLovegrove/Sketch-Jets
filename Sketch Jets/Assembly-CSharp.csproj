@@ -52,10 +52,12 @@
      <Compile Include="Assets\Scripts\P1Controller.cs" />
      <Compile Include="Assets\Scripts\P2Controller.cs" />
      <Compile Include="Assets\Scripts\PlanetGravity.cs" />
+     <Compile Include="Assets\Scripts\S_DestroyAfterTwo.cs" />
      <Compile Include="Assets\Scripts\S_EnemyBeh_Doppler.cs" />
      <Compile Include="Assets\Scripts\S_EnemyBeh_Frigate.cs" />
      <Compile Include="Assets\Scripts\S_EnemyBeh_Saucer.cs" />
      <Compile Include="Assets\Scripts\S_Hud.cs" />
+     <Compile Include="Assets\Scripts\S_PickupSound.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Gauss.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Laser.cs" />
      <Compile Include="Assets\Scripts\S_Wep_MachineGun.cs" />
