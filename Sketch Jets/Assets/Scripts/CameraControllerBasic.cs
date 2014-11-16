@@ -3,11 +3,13 @@ using System.Collections;
 
 public class CameraControllerBasic : MonoBehaviour {
 
+	public Vector3 Zaxis;
 	public GameObject[] players;
 
 	// Use this for initialization
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag("Player");
+		Zaxis = this.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -19,8 +21,10 @@ public class CameraControllerBasic : MonoBehaviour {
 		//	Vector3 cameraMove = new Vector3 ((players [0].transform.position.x, players [0].transform.position.y, transform.position.z) - (players [1].transform.position.x, players [1].transform.position.y, transform.position.z));
 		//	transform.position = cameraMove;
 		//} else {
-			Vector3 cameraMove = new Vector3 (players [0].transform.position.x, players [0].transform.position.y, transform.position.z);
-			transform.position = cameraMove;
+
+		Vector3 cameraMove = ((players [1].transform.position - players [0].transform.position)/2.0f) + players [0].transform.position + Zaxis;
+		transform.position = cameraMove;
+
 		//}
 
 
