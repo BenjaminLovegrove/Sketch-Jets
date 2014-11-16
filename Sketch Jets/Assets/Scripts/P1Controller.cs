@@ -22,8 +22,7 @@ public GameObject rocket;
 public GameObject laser;	
 public GameObject gauss;
 public GameObject primaryWeapon;
-	public GameObject PickupSound;
-
+public GameObject PickupSound;
 
 
 
@@ -189,22 +188,22 @@ public GameObject primaryWeapon;
 		}
 
 		if (col.gameObject.tag ==  "Rockets"){
+			rocketAmmo += 5;
 			rocketPickedUp = true;
-			rocketAmmo = 5;
 			PickupSound.SendMessage ("PickupSound");
 			Destroy (col.gameObject);
 		}
 
 		if (col.gameObject.tag ==  "Lasers"){
+			laserAmmo += 100;
 			laserPickedUp = true;
-			laserAmmo = 100;
 			PickupSound.SendMessage ("PickupSound");
 			Destroy (col.gameObject);
 		}
 
 		if (col.gameObject.tag ==  "GaussCannon"){
+			gaussAmmo += 2;
 			gaussPickedUp = true;
-			gaussAmmo = 2;
 			PickupSound.SendMessage ("PickupSound");
 			Destroy (col.gameObject);
 		}

@@ -7,9 +7,12 @@ public class S_Hud : MonoBehaviour {
 	public Texture MachinegunTex;
 	public Texture LaserTex;
 	public Texture GaussTex;
-	public GUIText WepEquipedTxt;
-	public string WeaponEquiped = "MG";
-	public GUITexture weaponSelected;
+	public string P1WeaponEquiped = "MG";
+	public string P2WeaponEquiped = "MG";
+	public GUIText P1WepEquipedTxt;
+	public GUIText P2WepEquipedTxt;
+	public GUITexture P1weaponSelected;
+	public GUITexture P2weaponSelected;
 
 	// Use this for initialization
 	void Start () {
@@ -25,37 +28,74 @@ public class S_Hud : MonoBehaviour {
 
 	void GUIweaponSelected(){
 
-		if (WeaponEquiped == "MG"){
-			weaponSelected.guiTexture.texture = MachinegunTex;
-			WepEquipedTxt.text = "MG";
+		//Player1
+		if (P1WeaponEquiped == "MG"){
+			P1weaponSelected.guiTexture.texture = MachinegunTex;
+			P1WepEquipedTxt.text = "MG";
 		}
-		if (WeaponEquiped == "Rocket"){
-			weaponSelected.guiTexture.texture = RocketTex;
-			WepEquipedTxt.text = "Rockets";
+		if (P1WeaponEquiped == "Rocket"){
+			P1weaponSelected.guiTexture.texture = RocketTex;
+			P1WepEquipedTxt.text = "Rockets";
 		}
-		if (WeaponEquiped == "Laser"){
-			weaponSelected.guiTexture.texture = LaserTex;
-			WepEquipedTxt.text = "Lasers";
+		if (P1WeaponEquiped == "Laser"){
+			P1weaponSelected.guiTexture.texture = LaserTex;
+			P1WepEquipedTxt.text = "Lasers";
 		}
-		if (WeaponEquiped == "Gauss"){
-			weaponSelected.guiTexture.texture = GaussTex;
-			WepEquipedTxt.text = "Gauss";
+		if (P1WeaponEquiped == "Gauss"){
+			P1weaponSelected.guiTexture.texture = GaussTex;
+			P1WepEquipedTxt.text = "Gauss";
+		}
+
+		//Player2
+		if (P2WeaponEquiped == "MG"){
+			P2weaponSelected.guiTexture.texture = MachinegunTex;
+			P2WepEquipedTxt.text = "MG";
+		}
+		if (P2WeaponEquiped == "Rocket"){
+			P2weaponSelected.guiTexture.texture = RocketTex;
+			P2WepEquipedTxt.text = "Rockets";
+		}
+		if (P2WeaponEquiped == "Laser"){
+			P2weaponSelected.guiTexture.texture = LaserTex;
+			P2WepEquipedTxt.text = "Lasers";
+		}
+		if (P2WeaponEquiped == "Gauss"){
+			P2weaponSelected.guiTexture.texture = GaussTex;
+			P2WepEquipedTxt.text = "Gauss";
 		}
 	}
 
+	//Player1
 	void EquipMG(){
-		WeaponEquiped = "MG";
+		P1WeaponEquiped = "MG";
 	}
 
 	void EquipRockets(){
-		WeaponEquiped = "Rocket";
+		P1WeaponEquiped = "Rocket";
 	}
 
 	void EquipLaser(){
-		WeaponEquiped = "Laser";
+		P1WeaponEquiped = "Laser";
 	}
 
 	void EquipGauss(){
-		WeaponEquiped = "Gauss";
+		P1WeaponEquiped = "Gauss";
+	}
+
+	//Player2
+	void EquipMG2(){
+		P2WeaponEquiped = "MG";
+	}
+	
+	void EquipRockets2(){
+		P2WeaponEquiped = "Rocket";
+	}
+	
+	void EquipLaser2(){
+		P2WeaponEquiped = "Laser";
+	}
+	
+	void EquipGauss2(){
+		P2WeaponEquiped = "Gauss";
 	}
 }
