@@ -22,6 +22,7 @@ public class S_EnemyBeh_Frigate : MonoBehaviour {
 	
 	void OnTriggerEnter2D (Collider2D col) {
 		if (col.gameObject.tag ==  "RocketRound"){
+			Instantiate (Explosion, col.transform.position, col.transform.rotation);
 			Health -= 25;
 			Destroy (col.gameObject);
 		}

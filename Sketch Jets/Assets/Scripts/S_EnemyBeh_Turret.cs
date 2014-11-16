@@ -12,6 +12,7 @@ public class S_EnemyBeh_Turret : MonoBehaviour {
 	Transform myTransform;
 	public float rotationSpeed = 3;
 	public bool run = true;
+	public ParticleSystem Explosion;
 	
 	
 	//declare player as leader
@@ -23,6 +24,7 @@ public class S_EnemyBeh_Turret : MonoBehaviour {
 
 		Leader = GameObject.FindGameObjectWithTag("Player").transform;
 		if (Health <= 0){
+			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
 		}
 
@@ -44,6 +46,7 @@ public class S_EnemyBeh_Turret : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 
 		if (col.gameObject.tag ==  "RocketRound"){
+			Instantiate (Explosion, col.transform.position, col.transform.rotation);
 			Health -= 25;
 			Destroy (col.gameObject);
 		}
