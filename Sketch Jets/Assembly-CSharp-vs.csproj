@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\S_EnemyBeh_Frigate.cs" />
      <Compile Include="Assets\Scripts\S_EnemyBeh_Saucer.cs" />
      <Compile Include="Assets\Scripts\S_EnemyBeh_Turret.cs" />
+     <Compile Include="Assets\Scripts\S_HealthBar_Test.cs" />
      <Compile Include="Assets\Scripts\S_Hud.cs" />
      <Compile Include="Assets\Scripts\S_PickupSound.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Gauss.cs" />
