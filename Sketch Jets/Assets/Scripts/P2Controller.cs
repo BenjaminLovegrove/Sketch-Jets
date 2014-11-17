@@ -14,6 +14,7 @@ public float rocketAmmo = 0;
 public float laserAmmo = 0;
 public float gaussAmmo = 0;
 public ParticleSystem Explosion;
+public 	float mgCooldown;
 
 	//Attached Game Objects
 public GameObject bltSpn;
@@ -62,9 +63,11 @@ public GameObject PickupSound;
 			rocketAmmo --;
 		}
 		//Fires Machineguns
-		if (Input.GetButtonDown("Fire2") && primaryWeapon == machineGun) {
+		if (Input.GetButton("Fire2") && primaryWeapon == machineGun && mgCooldown < 0) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+			mgCooldown = 0.2f;
 		}
+		mgCooldown -= Time.deltaTime;
 		//Fires Laser
 		if (Input.GetButton("Fire2") && laserAmmo > 0 && primaryWeapon == laser) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
