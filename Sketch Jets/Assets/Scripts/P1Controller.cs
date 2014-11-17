@@ -142,7 +142,7 @@ public GameObject PickupSound;
 		}
 		
 		//Machinegun from Lasers
-		else if (primaryWeapon == laser && rocketPickedUp == false && gaussPickedUp == false && Input.GetButtonDown ("Switch")) {
+		else if (primaryWeapon == laser && gaussPickedUp == false && Input.GetButtonDown ("Switch")) {
 			primaryWeapon = machineGun;
 			print ("Machinegun equiped");	
 			Camera.main.SendMessage ("EquipMG");
