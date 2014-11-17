@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour {
 	public Texture2D fgImage; 
 	public float P1healthBarLength;
 	public float P2healthBarLength;
+	public GameObject Boss;
+	public GameObject bossSpwnPos;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,7 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		BossSpawn();
 		AddjustCurrentHealth(0);
 		Death();
 	}
@@ -45,7 +48,11 @@ public class GameController : MonoBehaviour {
 		P2Health -= 10;
 	}
 
-
+	void BossSpawn(){
+		if(Input.GetButtonDown ("spawn")){
+			Instantiate (Boss, bossSpwnPos.transform.position, bossSpwnPos.transform.rotation);
+		}
+	}
 	void OnGUI () {
 
 		// Create one Group to contain both images
