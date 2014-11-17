@@ -8,6 +8,7 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 	public float Damage = 5;
 	public ParticleSystem Explosion;
 	public GameObject Bullet;
+	public GameObject bltSpawner;
 
 	public float range;
 	public Transform Leader;
@@ -21,7 +22,7 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 		Players = GameObject.FindGameObjectsWithTag ("Player");
 
 		//Get shoot range of ship
-		range = Random.Range (3, 7);
+		range = Random.Range (5, 7);
 
 	}
 
@@ -59,7 +60,7 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 			//Shoot player
 			Vector3 dir = Leader.transform.position - transform.position;
 			dir = dir.normalized;
-			GameObject CurrentBlt = (GameObject) Instantiate (Bullet, transform.position, transform.rotation);
+			GameObject CurrentBlt = (GameObject) Instantiate (Bullet, bltSpawner.transform.position,bltSpawner.transform.rotation);
 			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 100 / Time.fixedDeltaTime);
 			Destroy (CurrentBlt, 3);
 			mgCooldown = 0.5f;
