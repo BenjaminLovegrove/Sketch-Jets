@@ -7,11 +7,13 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 	public float Health = 50;
 	public float Damage = 5;
 	public ParticleSystem Explosion;
+	public GameObject Bullet;
 
 	public float range;
 	public Transform Leader;
 	public GameObject[] Players;
 	public float maxSpeed = 17;
+	public float mgCooldown = 0.5f;
 
 	void Start () {
 
@@ -52,10 +54,17 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 			if (rigidbody2D.velocity.sqrMagnitude < maxSpeed){
 				rigidbody2D.AddForce (moveDir * Time.deltaTime * maxSpeed); //I use max speed in the add force so units with a higher speed also have a higher accell.
 			}
-		} else {
+		} else if (mgCooldown < 0) {
 			rigidbody2D.velocity = (new Vector2 (0, 0));
-			//Shoot Player TBA
+			//Shoot player
+			Vector3 dir = Leader.transform.position - transform.position;
+			dir = dir.normalized;
+			GameObject CurrentBlt = (GameObject) Instantiate (Bullet, transform.position, transform.rotation);
+			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 100 / Time.fixedDeltaTime);
+			Destroy (CurrentBlt, 3);
+			mgCooldown = 0.5f;
 		}
+		mgCooldown -= Time.deltaTime;
 
 	}
 
