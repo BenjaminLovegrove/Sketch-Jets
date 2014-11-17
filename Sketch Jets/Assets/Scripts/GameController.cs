@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
 	public float P2healthBarLength;
 	public GameObject Boss;
 	public GameObject bossSpwnPos;
+	public float bossNum = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -49,8 +50,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	void BossSpawn(){
-		if(Input.GetButtonDown ("spawn")){
+		if(Input.GetButtonDown ("spawn") && bossNum == 0){
 			Instantiate (Boss, bossSpwnPos.transform.position, bossSpwnPos.transform.rotation);
+			bossNum ++;
 		}
 	}
 	void OnGUI () {
