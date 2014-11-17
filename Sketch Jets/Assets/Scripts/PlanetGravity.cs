@@ -24,6 +24,9 @@ public class PlanetGravity : MonoBehaviour {
 		else if (col.tag == "Saucer"){
 			
 		}
+		else if (col.tag == "Boss"){
+			
+		}
 		else if (col.tag == "MachinegunRound"){
 			col.rigidbody2D.AddForce (direction * planetSize * 20 / gravPull);
 		}
