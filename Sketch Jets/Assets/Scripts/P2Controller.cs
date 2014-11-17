@@ -189,6 +189,7 @@ public GameObject PickupSound;
 		if (col.gameObject.tag ==  "EnmyMG"){
 			Camera.main.SendMessage ("P2TenDamage");
 			Instantiate (Explosion, col.transform.position, col.transform.rotation);
+			Destroy (col.gameObject);
 		}
 		
 		if (col.gameObject.tag ==  "Rockets"){
