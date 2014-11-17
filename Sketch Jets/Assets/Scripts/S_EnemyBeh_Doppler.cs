@@ -8,9 +8,55 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 	public float Damage = 5;
 	public ParticleSystem Explosion;
 
+	public float range;
+	public Transform Leader;
+	public GameObject[] Players;
+	public float maxSpeed = 17;
+
+	void Start () {
+
+		//Get player objects
+		Players = GameObject.FindGameObjectsWithTag ("Player");
+
+		//Get shoot range of ship
+		range = Random.Range (3, 7);
+
+	}
 
 	void Update () {
 		HP();
+
+		float P1Distance = Vector3.Distance (Players [0].transform.position, transform.position);
+		float P2Distance = Vector3.Distance (Players [1].transform.position, transform.position);
+		
+		if (P1Distance < P2Distance){
+			Leader = Players[0].transform;
+		} else if (P2Distance < P1Distance){
+			Leader = Players[1].transform;
+		}
+
+		AI ();
+	}
+
+	void AI(){
+
+		//Always look at closest player
+		Vector3 vectorToTarget = Leader.position - transform.position;
+		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5);
+		
+		//If out of range move towards player, else stop and shoot player
+		if (Vector3.Distance (Leader.transform.position, transform.position) > range) {
+			Vector2 moveDir = Leader.position - transform.position;
+			if (rigidbody2D.velocity.sqrMagnitude < maxSpeed){
+				rigidbody2D.AddForce (moveDir * Time.deltaTime * maxSpeed); //I use max speed in the add force so units with a higher speed also have a higher accell.
+			}
+		} else {
+			rigidbody2D.velocity = (new Vector2 (0, 0));
+			//Shoot Player TBA
+		}
+
 	}
 
 	void HP (){

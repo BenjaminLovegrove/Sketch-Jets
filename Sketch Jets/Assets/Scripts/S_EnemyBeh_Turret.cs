@@ -3,26 +3,35 @@ using System.Collections;
 
 public class S_EnemyBeh_Turret : MonoBehaviour {
 	
-	Transform Leader;
+	public Transform Leader;
 	public GameObject Bullet;
 	public GameObject bltSpawn;
 	public float MinDistance = 10;
 	public float MaxDistance = 20;
 	public float Health = 20;
-	Transform myTransform;
+	public Transform myTransform;
 	public float rotationSpeed = 3;
 	public bool run = true;
 	public ParticleSystem Explosion;
-	
-	
-	//declare player as leader
+
+	public GameObject[] Players;
+
+
 	void Start () {
+		Players = GameObject.FindGameObjectsWithTag ("Player");
 		StartCoroutine (DoStuff());
 	}
 	
 	void Update () {
 
-		Leader = GameObject.FindGameObjectWithTag("Player").transform;
+		float P1Distance = Vector3.Distance (Players [0].transform.position, transform.position);
+		float P2Distance = Vector3.Distance (Players [1].transform.position, transform.position);
+
+		if (P1Distance < P2Distance){
+			Leader = Players[0].transform;
+		} else if (P2Distance < P1Distance){
+			Leader = Players[1].transform;
+		}
 		if (Health <= 0){
 			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
