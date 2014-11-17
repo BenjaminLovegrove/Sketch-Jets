@@ -31,37 +31,37 @@ public class S_Hud : MonoBehaviour {
 		//Player1
 		if (P1WeaponEquiped == "MG"){
 			P1weaponSelected.guiTexture.texture = MachinegunTex;
-			P1WepEquipedTxt.text = "MG";
+			P1WepEquipedTxt.text = "BA-CON \n MG";
 		}
 		if (P1WeaponEquiped == "Rocket"){
 			P1weaponSelected.guiTexture.texture = RocketTex;
-			P1WepEquipedTxt.text = "Rockets";
+			P1WepEquipedTxt.text = "BA-CON \n Rockets";
 		}
 		if (P1WeaponEquiped == "Laser"){
 			P1weaponSelected.guiTexture.texture = LaserTex;
-			P1WepEquipedTxt.text = "Lasers";
+			P1WepEquipedTxt.text = "BA-CON \n Lasers";
 		}
 		if (P1WeaponEquiped == "Gauss"){
 			P1weaponSelected.guiTexture.texture = GaussTex;
-			P1WepEquipedTxt.text = "Gauss";
+			P1WepEquipedTxt.text = "BA-CON \n Gauss";
 		}
 
 		//Player2
 		if (P2WeaponEquiped == "MG"){
 			P2weaponSelected.guiTexture.texture = MachinegunTex;
-			P2WepEquipedTxt.text = "MG";
+			P2WepEquipedTxt.text = "ST-LHT \n MG";
 		}
 		if (P2WeaponEquiped == "Rocket"){
 			P2weaponSelected.guiTexture.texture = RocketTex;
-			P2WepEquipedTxt.text = "Rockets";
+			P2WepEquipedTxt.text = "ST-LHT \n Rockets";
 		}
 		if (P2WeaponEquiped == "Laser"){
 			P2weaponSelected.guiTexture.texture = LaserTex;
-			P2WepEquipedTxt.text = "Lasers";
+			P2WepEquipedTxt.text = "ST-LHT \n Lasers";
 		}
 		if (P2WeaponEquiped == "Gauss"){
 			P2weaponSelected.guiTexture.texture = GaussTex;
-			P2WepEquipedTxt.text = "Gauss";
+			P2WepEquipedTxt.text = "ST-LHT \n Gauss";
 		}
 	}
 
