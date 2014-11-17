@@ -15,6 +15,15 @@ public class PlanetGravity : MonoBehaviour {
 		if (col.tag == "EnemyTurret"){
 
 		}
+		else if (col.tag == "Doppler"){
+			
+		}
+		else if (col.tag == "Frigate"){
+			
+		}
+		else if (col.tag == "Saucer"){
+			
+		}
 		else if (col.tag == "MachinegunRound"){
 			col.rigidbody2D.AddForce (direction * planetSize * 20 / gravPull);
 		}
