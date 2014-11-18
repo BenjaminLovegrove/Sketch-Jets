@@ -19,6 +19,8 @@ public ParticleSystem Explosion;
 public 	float mgCooldown;
 public GUIText AmmoText;
 
+public Object MuzzleFlash;
+
 	//Attached Game Objects
 public GameObject bltSpn;
 public GameObject machineGun;
@@ -71,6 +73,8 @@ public GameObject PickupSound;
 		}
 		//Fires Machineguns
 		if (Input.GetButton("Fire1") && primaryWeapon == machineGun && mgCooldown < 0) {
+			Object MF = Instantiate (MuzzleFlash, transform.position, transform.rotation);
+			Destroy (MF, 0.05f);
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			mgCooldown = 0.2f;
 			currentAmmo = MGAmmo;
