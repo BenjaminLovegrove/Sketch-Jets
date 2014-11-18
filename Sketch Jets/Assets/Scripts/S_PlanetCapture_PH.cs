@@ -13,6 +13,13 @@ public class S_PlanetCapture_PH : MonoBehaviour {
 		texRenderer.color = Color.red;
 	}
 
+	void Update(){
+		if (Input.GetButtonDown ("cheat")){
+			texRenderer.color = Color.green;
+		}
+	}
+
+	/*
 	void OnTriggerStay (Collider col) {
 		captureTimer -= Time.deltaTime;
 
@@ -24,4 +31,5 @@ public class S_PlanetCapture_PH : MonoBehaviour {
 	void OnTriggerExit (Collider col) {
 		captureTimer = 5;
 	}
+	*/
 }
