@@ -13,8 +13,12 @@ public bool gaussPickedUp = false;
 public float rocketAmmo = 0;
 public float laserAmmo = 0;
 public float gaussAmmo = 0;
+public string currentAmmo;
+public string MGAmmo = "Unlimited";
 public ParticleSystem Explosion;
 public 	float mgCooldown;
+public GUIText AmmoText;
+
 
 	//Attached Game Objects
 public GameObject bltSpn;
@@ -24,11 +28,15 @@ public GameObject laser;
 public GameObject gauss;
 public GameObject primaryWeapon;
 public GameObject PickupSound;
+public Object MuzzleFlash;
 
 
 
 	void Update () {
 
+		AmmoText.text = currentAmmo;
+		
+		GUIDebug();
 		Movement();
 		Fire();
 		SwitchWeps();
@@ -61,23 +69,29 @@ public GameObject PickupSound;
 		if (Input.GetButtonDown("Fire2") && rocketAmmo > 0 && primaryWeapon == rocket) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			rocketAmmo --;
+			currentAmmo = rocketAmmo.ToString();
 		}
 		//Fires Machineguns
 		if (Input.GetButton("Fire2") && primaryWeapon == machineGun && mgCooldown < 0) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+			Object MF = Instantiate (MuzzleFlash, transform.position, transform.rotation);
+			Destroy (MF, 0.05f);
 			mgCooldown = 0.2f;
+			currentAmmo = MGAmmo;
 		}
 		mgCooldown -= Time.deltaTime;
 		//Fires Laser
 		if (Input.GetButton("Fire2") && laserAmmo > 0 && primaryWeapon == laser) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			laserAmmo --;
+			currentAmmo = laserAmmo.ToString();
 		}
 		//Fires Gauss
 		if (Input.GetButtonDown("Fire2") && gaussAmmo > 0 && primaryWeapon == gauss) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
 			gaussAmmo --;
+			currentAmmo = gaussAmmo.ToString();
 		}
 	}
 
@@ -180,6 +194,21 @@ public GameObject PickupSound;
 			primaryWeapon = laser;
 			print ("Laser equiped");	
 			Camera.main.SendMessage ("EquipLaser2");
+		}
+	}
+
+	void GUIDebug() {
+		if (primaryWeapon == machineGun){
+			currentAmmo = MGAmmo.ToString();
+		}
+		if (primaryWeapon == laser){
+			currentAmmo = laserAmmo.ToString();
+		}
+		if(primaryWeapon == rocket){
+			currentAmmo = rocketAmmo.ToString();
+		}
+		if(primaryWeapon == gauss){
+			currentAmmo = gaussAmmo.ToString();
 		}
 	}
 

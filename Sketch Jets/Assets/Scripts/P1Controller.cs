@@ -19,7 +19,6 @@ public ParticleSystem Explosion;
 public 	float mgCooldown;
 public GUIText AmmoText;
 
-public Object MuzzleFlash;
 
 	//Attached Game Objects
 public GameObject bltSpn;
@@ -29,6 +28,7 @@ public GameObject laser;
 public GameObject gauss;
 public GameObject primaryWeapon;
 public GameObject PickupSound;
+public Object MuzzleFlash;
 
 	void Start(){
 		currentAmmo = MGAmmo;
