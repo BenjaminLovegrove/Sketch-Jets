@@ -14,7 +14,7 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 	public Transform Leader;
 	public GameObject[] Players;
 	public float maxSpeed = 17;
-	public float mgCooldown = 0.5f;
+	public float mgCooldown = 1f;
 
 	void Start () {
 
@@ -61,9 +61,9 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 			Vector3 dir = Leader.transform.position - transform.position;
 			dir = dir.normalized;
 			GameObject CurrentBlt = (GameObject) Instantiate (Bullet, bltSpawner.transform.position,bltSpawner.transform.rotation);
-			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 100 / Time.fixedDeltaTime);
+			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 300);
 			Destroy (CurrentBlt, 3);
-			mgCooldown = 0.5f;
+			mgCooldown = 1f;
 		}
 		mgCooldown -= Time.deltaTime;
 
