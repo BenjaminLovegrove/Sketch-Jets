@@ -52,8 +52,9 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 		//If out of range move towards player, else stop and shoot player
 		if (Vector3.Distance (Leader.transform.position, transform.position) > range) {
 			Vector2 moveDir = Leader.position - transform.position;
-			if (rigidbody2D.velocity.sqrMagnitude < maxSpeed){
-				rigidbody2D.AddForce (moveDir * Time.deltaTime * maxSpeed); //I use max speed in the add force so units with a higher speed also have a higher accell.
+			rigidbody2D.AddForce (moveDir * Time.deltaTime * maxSpeed); //I use max speed in the add force so units with a higher speed also have a higher accell.
+			if (rigidbody2D.velocity.sqrMagnitude > maxSpeed){
+				rigidbody2D.velocity = (moveDir * Time.deltaTime * maxSpeed);
 			}
 		} else if (mgCooldown < 0) {
 			rigidbody2D.velocity = (new Vector2 (0, 0));
@@ -61,7 +62,7 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 			Vector3 dir = Leader.transform.position - transform.position;
 			dir = dir.normalized;
 			GameObject CurrentBlt = (GameObject) Instantiate (Bullet, bltSpawner.transform.position,bltSpawner.transform.rotation);
-			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 300);
+			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 100 / Time.fixedDeltaTime);
 			Destroy (CurrentBlt, 3);
 			mgCooldown = 1f;
 		}
