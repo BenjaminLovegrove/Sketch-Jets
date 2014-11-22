@@ -60,9 +60,9 @@ public class S_EnemyBeh_Frigate : MonoBehaviour {
 			Vector3 dir = Leader.transform.position - transform.position;
 			dir = dir.normalized;
 			GameObject CurrentBlt = (GameObject) Instantiate (Bullet, bltSpawner.transform.position,bltSpawner.transform.rotation);
-			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 100 / Time.fixedDeltaTime);
-			Destroy (CurrentBlt, 3);
-			mgCooldown = 1f;
+			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 10 / Time.fixedDeltaTime);
+			Destroy (CurrentBlt, 7);
+			mgCooldown = 3f;
 		}
 		mgCooldown -= Time.deltaTime;
 

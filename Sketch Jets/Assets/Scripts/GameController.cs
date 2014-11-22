@@ -3,10 +3,10 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public int P1maxHealth = 500;
-	public int P2maxHealth = 500;
-	public float P1Health = 500f;
-	public float P2Health = 500f;
+	public int P1maxHealth = 100;
+	public int P2maxHealth = 100;
+	public float P1Health = 100f;
+	public float P2Health = 100f;
 	public GameObject Player1;
 	public GameObject Player2;
 	public bool P1needRevive = false;
@@ -42,11 +42,11 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	void P1TenDamage(){
-		P1Health -= 10;
+	void P1Damage(int dmg){
+		P1Health -= dmg;
 	}
-	void P2TenDamage(){
-		P2Health -= 10;
+	void P2Damage(int dmg){
+		P2Health -= dmg;
 	}
 
 	void BossSpawn(){

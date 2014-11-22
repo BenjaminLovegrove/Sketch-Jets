@@ -216,7 +216,13 @@ public Object MuzzleFlash;
 	void OnTriggerEnter2D (Collider2D col) {
 		
 		if (col.gameObject.tag ==  "EnmyMG"){
-			Camera.main.SendMessage ("P2TenDamage");
+			Camera.main.SendMessage ("P2Damage", 5);
+			Instantiate (Explosion, col.transform.position, col.transform.rotation);
+			Destroy (col.gameObject);
+		}
+		
+		if (col.gameObject.tag ==  "EnmyRocket"){
+			Camera.main.SendMessage ("P2Damage", 25);
 			Instantiate (Explosion, col.transform.position, col.transform.rotation);
 			Destroy (col.gameObject);
 		}
