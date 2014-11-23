@@ -15,7 +15,7 @@ public float laserAmmo = 0;
 public float gaussAmmo = 0;
 public string currentAmmo;
 public string MGAmmo = "Unlimited";
-public ParticleSystem Explosion;
+public GameObject Explosion;
 public 	float mgCooldown;
 public GUIText AmmoText;
 
