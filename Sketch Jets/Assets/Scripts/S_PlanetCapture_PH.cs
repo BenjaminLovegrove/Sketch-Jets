@@ -19,7 +19,7 @@ public class S_PlanetCapture_PH : MonoBehaviour {
 				captureTimer -= Time.deltaTime;
 		}
 
-		if (captureTimer < 0){
+		if (captureTimer < 0 && captured == false){
 			texRenderer.color = Color.green;
 			captured = true;
 			Camera.main.SendMessage("PlanetCapture");
