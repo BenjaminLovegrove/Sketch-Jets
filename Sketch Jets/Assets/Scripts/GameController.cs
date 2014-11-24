@@ -20,8 +20,8 @@ public class GameController : MonoBehaviour {
 	public float bossNum = 0;
 	public GameObject[] planets;
 	public int planetsLeft;
-	public float P1RegenCD = 7;
-	public float P2RegenCD = 7;
+	public float P1RegenCD = 4;
+	public float P2RegenCD = 4;
 
 	// Use this for initialization
 	void Start () {
@@ -40,14 +40,14 @@ public class GameController : MonoBehaviour {
 		Death();
 
 		P1RegenCD -= Time.deltaTime;
-		P1RegenCD -= Time.deltaTime;
+		P2RegenCD -= Time.deltaTime;
 
 		if (P1RegenCD <= 0 && P1Health < 100){
-			P1Health += 0.2f;
+			P1Health += 0.4f;
 		}
 
 		if (P2RegenCD <= 0 && P2Health < 100){
-			P2Health += 0.2f;
+			P2Health += 0.4f;
 		}
 
 	}
