@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour {
 	public float bossNum = 0;
 	public GameObject[] planets;
 	public int planetsLeft;
+	public float P1RegenCD = 7;
+	public float P2RegenCD = 7;
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +36,20 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		BossSpawn();
-		AddjustCurrentHealth(0);
+		AdjustCurrentHealth(0);
 		Death();
+
+		P1RegenCD -= Time.deltaTime;
+		P1RegenCD -= Time.deltaTime;
+
+		if (P1RegenCD <= 0 && P1Health < 100){
+			P1Health += 0.2f;
+		}
+
+		if (P2RegenCD <= 0 && P2Health < 100){
+			P2Health += 0.2f;
+		}
+
 	}
 
 	void Death (){
@@ -51,9 +65,11 @@ public class GameController : MonoBehaviour {
 
 	void P1Damage(int dmg){
 		P1Health -= dmg;
+		P1RegenCD = 7;
 	}
 	void P2Damage(int dmg){
 		P2Health -= dmg;
+		P2RegenCD = 7;
 	}
 
 	void PlanetCapture(){
@@ -102,7 +118,7 @@ public class GameController : MonoBehaviour {
 		GUI.EndGroup ();
 	}
 
-	public void AddjustCurrentHealth(int adj){
+	public void AdjustCurrentHealth(int adj){
 		
 		P1Health += adj;
 		P2Health += adj;
