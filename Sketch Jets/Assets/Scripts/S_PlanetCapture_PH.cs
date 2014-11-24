@@ -4,7 +4,8 @@ using System.Collections;
 public class S_PlanetCapture_PH : MonoBehaviour {
 	
 	public SpriteRenderer texRenderer;
-	public float captureTimer = 5;
+	public float captureTimer = 10;
+	public bool captured = false;
 
 
 	// Use this for initialization
@@ -13,23 +14,19 @@ public class S_PlanetCapture_PH : MonoBehaviour {
 		texRenderer.color = Color.red;
 	}
 
-	void Update(){
-		if (Input.GetButtonDown ("cheat")){
-			texRenderer.color = Color.green;
+	void OnTriggerStay2D (Collider2D col) {
+		if (col.gameObject.tag == "Player"){
+				captureTimer -= Time.deltaTime;
 		}
-	}
-
-	/*
-	void OnTriggerStay (Collider col) {
-		captureTimer -= Time.deltaTime;
 
 		if (captureTimer < 0){
 			texRenderer.color = Color.green;
+			captured = true;
+			Camera.main.SendMessage("PlanetCapture");
 		}
 	}
 
-	void OnTriggerExit (Collider col) {
+	void OnTriggerExit2D (Collider2D col) {
 		captureTimer = 5;
 	}
-	*/
 }

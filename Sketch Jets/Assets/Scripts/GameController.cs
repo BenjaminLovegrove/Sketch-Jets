@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
@@ -17,11 +18,17 @@ public class GameController : MonoBehaviour {
 	public GameObject Boss;
 	public GameObject bossSpwnPos;
 	public float bossNum = 0;
+	public GameObject[] planets;
+	public int planetsLeft;
 
 	// Use this for initialization
 	void Start () {
 		P1healthBarLength = 300;  
 		P2healthBarLength = 300; 
+		planets = GameObject.FindGameObjectsWithTag ("PlanetCapture");
+		planetsLeft = planets.Length;
+		print ("Total Planets: " + planetsLeft);
+		Camera.main.SendMessage ("PlanetCountStart", planetsLeft);
 	}
 	
 	// Update is called once per frame
@@ -49,8 +56,12 @@ public class GameController : MonoBehaviour {
 		P2Health -= dmg;
 	}
 
+	void PlanetCapture(){
+		planetsLeft --;
+	}
+
 	void BossSpawn(){
-		if(Input.GetButtonDown ("spawn") && bossNum == 0){
+		if(planetsLeft <= 0 && bossNum < 1){
 			Instantiate (Boss, bossSpwnPos.transform.position, bossSpwnPos.transform.rotation);
 			bossNum ++;
 		}

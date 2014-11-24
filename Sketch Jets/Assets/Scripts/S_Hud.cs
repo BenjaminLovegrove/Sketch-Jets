@@ -13,17 +13,21 @@ public class S_Hud : MonoBehaviour {
 	public GUIText P2WepEquipedTxt;
 	public GUITexture P1weaponSelected;
 	public GUITexture P2weaponSelected;
+	public int planetsLeft;
 
-	// Use this for initialization
-	void Start () {
 
-	}
-	
-	// Update is called once per frame
 	void Update () {
 
 		GUIweaponSelected();
 
+	}
+
+	void PlanetCountStart(int totalplanets){
+		planetsLeft = totalplanets;
+	}
+
+	void PlanetCapture(){
+		planetsLeft --;
 	}
 
 	void GUIweaponSelected(){
