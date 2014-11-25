@@ -19,6 +19,8 @@ public GameObject Explosion;
 public 	float mgCooldown;
 public GUIText AmmoText;
 public float rocketCD;
+public float gaussCD;
+public float gaussStay;
 public LineRenderer line;
 
 
@@ -41,6 +43,8 @@ public Object MuzzleFlash;
 
 		AmmoText.text = currentAmmo;
 		rocketCD -= Time.deltaTime;
+		gaussCD -= Time.deltaTime;
+		gaussStay -= Time.deltaTime;
 		
 		GUIDebug();
 		Movement();
@@ -109,20 +113,35 @@ public Object MuzzleFlash;
 		}
 		
 		//Fires Gauss
-		if (Input.GetButtonDown("Fire1") && gaussAmmo > 0 && primaryWeapon == gauss) {
-			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
-			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
-			gaussAmmo --;
-			currentAmmo = gaussAmmo.ToString();
+		if (primaryWeapon == gauss){
+			if (Input.GetButtonDown("Fire2") && gaussAmmo > 0 && primaryWeapon == gauss && gaussCD <= 0) {
+				gaussCD = 2;
+				gaussStay = 0.5f;
+				gaussAmmo --;
+				this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
+				line.SetWidth (0.5f, 0.5f);
+				RaycastHit2D[] hits = Physics2D.RaycastAll(bltSpn.transform.position,transform.right);
+				foreach (RaycastHit2D hit in hits){
+					if (hit.collider != null){
+						hit.collider.gameObject.SendMessage("LaserHit", 100, SendMessageOptions.DontRequireReceiver);
+					}
+				}
+				line.SetPosition(0, transform.position);
+				line.SetPosition(1, bltSpn.transform.position + (transform.right * 500));
+				line.enabled = true;
+				laserAmmo -= Time.deltaTime;
+				currentAmmo = laserAmmo.ToString();
+				if (laserAmmo < 0){
+					laserAmmo = 0;
+				}
+			} else if (gaussStay <= 0) {
+				line.enabled = false;
+				if (laserAmmo < 0){
+					laserAmmo = 0;
+				}
+			}
 		}
-
-		//Fires Gauss
-		if (Input.GetButtonDown("Fire2") && gaussAmmo > 0 && primaryWeapon == gauss) {
-			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
-			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
-			gaussAmmo --;
-			currentAmmo = gaussAmmo.ToString();
-		}
+		
 	}
 
 

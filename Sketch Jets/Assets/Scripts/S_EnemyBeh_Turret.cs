@@ -88,4 +88,8 @@ public class S_EnemyBeh_Turret : MonoBehaviour {
 			}
 		}
 	}
+
+	void LaserHit(int dmg){
+		Health -= dmg;
+	}
 }
