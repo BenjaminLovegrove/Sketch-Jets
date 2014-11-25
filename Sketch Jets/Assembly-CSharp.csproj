@@ -62,6 +62,9 @@
      <Compile Include="Assets\Scripts\S_Hud.cs" />
      <Compile Include="Assets\Scripts\S_PickupSound.cs" />
      <Compile Include="Assets\Scripts\S_PlanetCapture_PH.cs" />
+     <Compile Include="Assets\Scripts\S_Spawner_Doppler.cs" />
+     <Compile Include="Assets\Scripts\S_Spawner_Frigate.cs" />
+     <Compile Include="Assets\Scripts\S_Spawner_Saucer.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Gauss.cs" />
      <Compile Include="Assets\Scripts\S_Wep_Laser.cs" />
      <Compile Include="Assets\Scripts\S_Wep_MachineGun.cs" />
