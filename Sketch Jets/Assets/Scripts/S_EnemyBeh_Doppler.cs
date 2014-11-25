@@ -97,4 +97,8 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 			Destroy (col.gameObject);
 		}
 	}
+
+	void LaserHit(int dmg){
+		Health -= dmg;
+	}
 }

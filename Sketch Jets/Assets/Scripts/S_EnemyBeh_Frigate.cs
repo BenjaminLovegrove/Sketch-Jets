@@ -101,4 +101,8 @@ public class S_EnemyBeh_Frigate : MonoBehaviour {
 			Destroy (col.gameObject);
 		}
 	}
+
+	void LaserHit(int dmg){
+		Health -= dmg;
+	}
 }

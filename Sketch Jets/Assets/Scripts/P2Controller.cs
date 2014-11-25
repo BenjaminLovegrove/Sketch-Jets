@@ -19,6 +19,7 @@ public GameObject Explosion;
 public 	float mgCooldown;
 public GUIText AmmoText;
 public float rocketCD;
+public LineRenderer line;
 
 
 	//Attached Game Objects
@@ -31,7 +32,10 @@ public GameObject primaryWeapon;
 public GameObject PickupSound;
 public Object MuzzleFlash;
 
-
+	void Start(){
+		currentAmmo = MGAmmo;
+		line = gameObject.GetComponent<LineRenderer> ();
+	}
 
 	void Update () {
 
@@ -85,10 +89,33 @@ public Object MuzzleFlash;
 		mgCooldown -= Time.deltaTime;
 		//Fires Laser
 		if (Input.GetButton("Fire2") && laserAmmo > 0 && primaryWeapon == laser) {
-			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
-			laserAmmo --;
+			RaycastHit2D hit = Physics2D.Raycast(bltSpn.transform.position,transform.right);
+			if (hit.collider != null){
+				hit.collider.gameObject.SendMessage("LaserHit", 2, SendMessageOptions.DontRequireReceiver);
+			}
+			line.SetPosition(0, transform.position);
+			line.SetPosition(1, bltSpn.transform.position + (transform.right * 500));
+			line.enabled = true;
+			laserAmmo -= Time.deltaTime;
 			currentAmmo = laserAmmo.ToString();
+			if (laserAmmo < 0){
+				laserAmmo = 0;
+			}
+		} else {
+			line.enabled = false;
+			if (laserAmmo < 0){
+				laserAmmo = 0;
+			}
 		}
+		
+		//Fires Gauss
+		if (Input.GetButtonDown("Fire1") && gaussAmmo > 0 && primaryWeapon == gauss) {
+			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
+			gaussAmmo --;
+			currentAmmo = gaussAmmo.ToString();
+		}
+
 		//Fires Gauss
 		if (Input.GetButtonDown("Fire2") && gaussAmmo > 0 && primaryWeapon == gauss) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);

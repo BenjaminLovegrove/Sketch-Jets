@@ -102,4 +102,8 @@ public class S_EnemyBeh_Saucer : MonoBehaviour {
 			Destroy (col.gameObject);
 		}
 	}
+
+	void LaserHit(int dmg){
+		Health -= dmg;
+	}
 }
