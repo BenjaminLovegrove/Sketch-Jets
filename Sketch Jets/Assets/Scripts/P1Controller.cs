@@ -19,6 +19,8 @@ public GameObject Explosion;
 public 	float mgCooldown;
 public GUIText AmmoText;
 public float rocketCD;
+public float gaussCD;
+public float gaussStay;
 public LineRenderer line;
 
 
@@ -42,6 +44,7 @@ public Object MuzzleFlash;
 
 		AmmoText.text = currentAmmo;
 		rocketCD -= Time.deltaTime;
+		gaussCD -= Time.deltaTime;
 
 		GUIDebug();
 		Movement();
@@ -91,6 +94,7 @@ public Object MuzzleFlash;
 
 		//Fires Laser
 		if (Input.GetButton("Fire1") && laserAmmo > 0 && primaryWeapon == laser) {
+			line.SetWidth (0.2f, 0.2f);
 			RaycastHit2D hit = Physics2D.Raycast(bltSpn.transform.position,transform.right);
 			if (hit.collider != null){
 				hit.collider.gameObject.SendMessage("LaserHit", 2, SendMessageOptions.DontRequireReceiver);
@@ -111,11 +115,27 @@ public Object MuzzleFlash;
 		}
 
 		//Fires Gauss
-		if (Input.GetButtonDown("Fire1") && gaussAmmo > 0 && primaryWeapon == gauss) {
-			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
+		if (Input.GetButtonDown("Fire1") && gaussAmmo > 0 && primaryWeapon == gauss && gaussCD <= 0) {
+			gaussCD = 2;
 			this.rigidbody2D.AddForce (-bltSpn.transform.up * rigidbody2D.mass * 20 / Time.fixedDeltaTime);
-			gaussAmmo --;
-			currentAmmo = gaussAmmo.ToString();
+			line.SetWidth (1f, 1f);
+			RaycastHit2D hit = Physics2D.Raycast(bltSpn.transform.position,transform.right);
+			if (hit.collider != null){
+				hit.collider.gameObject.SendMessage("LaserHit", 2, SendMessageOptions.DontRequireReceiver);
+			}
+			line.SetPosition(0, transform.position);
+			line.SetPosition(1, bltSpn.transform.position + (transform.right * 500));
+			line.enabled = true;
+			laserAmmo -= Time.deltaTime;
+			currentAmmo = laserAmmo.ToString();
+			if (laserAmmo < 0){
+				laserAmmo = 0;
+			}
+		} else {
+			line.enabled = false;
+			if (laserAmmo < 0){
+				laserAmmo = 0;
+			}
 		}
 	}
 
