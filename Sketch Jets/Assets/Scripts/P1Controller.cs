@@ -18,6 +18,7 @@ public string MGAmmo = "Unlimited";
 public GameObject Explosion;
 public 	float mgCooldown;
 public GUIText AmmoText;
+public float rocketCD;
 
 
 	//Attached Game Objects
@@ -37,6 +38,7 @@ public Object MuzzleFlash;
 	void Update () {
 
 		AmmoText.text = currentAmmo;
+		rocketCD -= Time.deltaTime;
 
 		GUIDebug();
 		Movement();
@@ -68,10 +70,11 @@ public Object MuzzleFlash;
 	void Fire(){
 
 		//Fires Rockets
-		if (Input.GetButtonDown("Fire1") && rocketAmmo > 0 && primaryWeapon == rocket) {
+		if (Input.GetButtonDown("Fire1") && rocketAmmo > 0 && primaryWeapon == rocket && rocketCD <= 0) {
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			rocketAmmo --;
 			currentAmmo = rocketAmmo.ToString();
+			rocketCD = 1;
 		}
 		//Fires Machineguns
 		if (Input.GetButton("Fire1") && primaryWeapon == machineGun && mgCooldown < 0) {
