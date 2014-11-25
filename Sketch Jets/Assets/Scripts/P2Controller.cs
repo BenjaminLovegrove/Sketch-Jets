@@ -45,7 +45,11 @@ public Object MuzzleFlash;
 		rocketCD -= Time.deltaTime;
 		gaussCD -= Time.deltaTime;
 		gaussStay -= Time.deltaTime;
-		
+
+		if (gaussStay <= 0) {
+			line.enabled = false;
+		}
+
 		GUIDebug();
 		Movement();
 		Fire();
