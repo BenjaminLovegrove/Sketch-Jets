@@ -3,7 +3,7 @@ using System.Collections;
 
 public class S_EnemyBeh_Saucer : MonoBehaviour {
 
-	public float Health = 120;
+	public float Health = 80;
 	public float Damage = 5;
 	public ParticleSystem Explosion;
 	public GameObject Bullet;
