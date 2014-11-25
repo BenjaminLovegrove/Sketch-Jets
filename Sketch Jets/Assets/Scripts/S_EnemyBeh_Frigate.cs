@@ -8,6 +8,7 @@ public class S_EnemyBeh_Frigate : MonoBehaviour {
 	public ParticleSystem Explosion;
 	public GameObject Bullet;
 	public GameObject bltSpawner;
+	public GameObject weaponDrop;
 
 	public float range;
 	public Transform Leader;
@@ -70,6 +71,11 @@ public class S_EnemyBeh_Frigate : MonoBehaviour {
 	
 	void HP (){
 		if (Health <= 0){
+			float dropRNG = Random.Range (0,10);
+			if (dropRNG >= 7){
+				Instantiate (weaponDrop, this.transform.position, Quaternion.identity);
+			}
+
 			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
 			print ("Frigate Destroyed");
