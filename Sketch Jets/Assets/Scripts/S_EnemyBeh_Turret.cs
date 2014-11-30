@@ -35,6 +35,7 @@ public class S_EnemyBeh_Turret : MonoBehaviour {
 		if (Health <= 0){
 			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
+			Camera.main.SendMessage ("AddScore", 280);
 		}
 
 		AI();

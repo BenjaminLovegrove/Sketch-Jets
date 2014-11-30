@@ -75,6 +75,8 @@ public class S_EnemyBeh_Doppler : MonoBehaviour {
 			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
 			print ("Doppler Down");
+
+			Camera.main.SendMessage ("AddScore", 100);
 		}
 	}
 

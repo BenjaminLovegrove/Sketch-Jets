@@ -15,6 +15,7 @@ public class S_Hud : MonoBehaviour {
 	public GUITexture P2weaponSelected;
 	public int planetsLeft;
 	public GUIStyle guiStyle01;
+	public int Score;
 
 	void Start() {
 		guiStyle01.fontSize = 30;
@@ -24,6 +25,10 @@ public class S_Hud : MonoBehaviour {
 
 		GUIweaponSelected();
 
+	}
+
+	void AddScore(int scr){
+		Score += scr;
 	}
 
 	void PlanetCountStart(int totalplanets){
@@ -36,6 +41,7 @@ public class S_Hud : MonoBehaviour {
 
 	void OnGUI(){
 		GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.95f, 50, 50), "Planets Left: " + planetsLeft.ToString (), guiStyle01); 
+		GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.90f, 50, 50), "Score: " + Score.ToString (), guiStyle01); 
 	}
 
 	void GUIweaponSelected(){

@@ -80,6 +80,7 @@ public class S_EnemyBeh_Saucer : MonoBehaviour {
 			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
 			print ("Saucer Sacrificed!");
+			Camera.main.SendMessage ("AddScore", 250);
 		}
 	}
 	

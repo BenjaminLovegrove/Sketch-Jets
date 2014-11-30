@@ -79,6 +79,7 @@ public class S_EnemyBeh_Frigate : MonoBehaviour {
 			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
 			print ("Frigate Destroyed");
+			Camera.main.SendMessage ("AddScore", 170);
 		}
 	}
 	
