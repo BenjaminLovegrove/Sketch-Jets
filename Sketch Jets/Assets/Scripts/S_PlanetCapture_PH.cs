@@ -17,10 +17,9 @@ public class S_PlanetCapture_PH : MonoBehaviour {
 	void OnTriggerStay2D (Collider2D col) {
 		if (col.gameObject.tag == "Player"){
 				captureTimer -= Time.deltaTime;
-		}
-
-		if (captured == false){
-			Camera.main.SendMessage ("AddScore", 100 * Time.deltaTime);
+			if (captured == false){
+				Camera.main.SendMessage ("AddScore", 100 * Time.deltaTime);
+			}
 		}
 
 		if (captureTimer < 0 && captured == false){
