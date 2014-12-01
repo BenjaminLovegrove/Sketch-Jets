@@ -307,4 +307,8 @@ public Object MuzzleFlash;
 			Destroy (col.gameObject);
 		}
 	}
+
+	void EnemyLaserHit(){
+		Camera.main.SendMessage ("P1Damage", 0.5f);
+	}
 }

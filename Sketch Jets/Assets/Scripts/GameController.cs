@@ -63,11 +63,11 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	void P1Damage(int dmg){
+	void P1Damage(float dmg){
 		P1Health -= dmg;
 		P1RegenCD = 7;
 	}
-	void P2Damage(int dmg){
+	void P2Damage(float dmg){
 		P2Health -= dmg;
 		P2RegenCD = 7;
 	}
