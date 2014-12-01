@@ -55,17 +55,11 @@ public class GameController : MonoBehaviour {
 	void Death (){
 		if (P1Health <= 0 && P1needRevive == false){
 			print ("Player1. You Have Died");
-			Destroy (Player1); // temp
 			P1needRevive = true;
 		}
 		if (P2Health <= 0 && P2needRevive == false){
 			print ("Player2. You Have Died");
-			Destroy (Player2); // temp
 			P2needRevive = true;
-		}
-
-		if (P2needRevive && P1needRevive){
-			Application.LoadLevel (Application.loadedLevel.ToString());
 		}
 	}
 
