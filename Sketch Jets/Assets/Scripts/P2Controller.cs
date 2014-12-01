@@ -96,23 +96,28 @@ public Object MuzzleFlash;
 		}
 		mgCooldown -= Time.deltaTime;
 		//Fires Laser
-		if (Input.GetButton("Fire2") && laserAmmo > 0 && primaryWeapon == laser) {
-			RaycastHit2D hit = Physics2D.Raycast(bltSpn.transform.position,transform.right);
-			if (hit.collider != null){
-				hit.collider.gameObject.SendMessage("LaserHit", 2, SendMessageOptions.DontRequireReceiver);
-			}
-			line.SetPosition(0, transform.position);
-			line.SetPosition(1, bltSpn.transform.position + (transform.right * 500));
-			line.enabled = true;
-			laserAmmo -= Time.deltaTime;
-			currentAmmo = laserAmmo.ToString();
-			if (laserAmmo < 0){
-				laserAmmo = 0;
-			}
-		} else {
-			line.enabled = false;
-			if (laserAmmo < 0){
-				laserAmmo = 0;
+		if (primaryWeapon == laser){
+			if (Input.GetButton("Fire2") && laserAmmo > 0 && primaryWeapon == laser) {
+				line.SetWidth (0.2f, 0.2f);
+				RaycastHit2D[] hits = Physics2D.RaycastAll(bltSpn.transform.position,transform.right);
+				foreach (RaycastHit2D hit in hits){
+					if (hit.collider != null){
+						hit.collider.gameObject.SendMessage("LaserHit", 2, SendMessageOptions.DontRequireReceiver);
+					}
+				}
+				line.SetPosition(0, transform.position);
+				line.SetPosition(1, bltSpn.transform.position + (transform.right * 500));
+				line.enabled = true;
+				laserAmmo -= Time.deltaTime;
+				currentAmmo = laserAmmo.ToString();
+				if (laserAmmo < 0){
+					laserAmmo = 0;
+				}
+			} else {
+				line.enabled = false;
+				if (laserAmmo < 0){
+					laserAmmo = 0;
+				}
 			}
 		}
 		
