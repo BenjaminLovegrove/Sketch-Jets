@@ -44,7 +44,7 @@ public class S_Hud : MonoBehaviour {
 		GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.95f, 50, 50), "Planets Left: " + planetsLeft.ToString (), guiStyle01); 
 		GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.90f, 50, 50), "Score: " + Score.ToString (), guiStyle01); 
 		if (boss){
-			GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.85f, 50, 50), "Boss Spawned!"); 
+			GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.85f, 50, 50), "Boss Spawned!", guiStyle01); 
 		}
 	}
 
