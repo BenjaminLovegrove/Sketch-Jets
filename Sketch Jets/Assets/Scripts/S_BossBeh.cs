@@ -71,7 +71,8 @@ public class S_BossBeh : MonoBehaviour {
 		if (Health <= 0){
 			Instantiate (Explosion, this.transform.position, this.transform.rotation);
 			Destroy (this.gameObject);
-			print ("Frigate Destroyed");
+			print ("Boss dead!");
+			Application.LoadLevel (Application.loadedLevel.ToString());
 		}
 	}
 	

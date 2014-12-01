@@ -80,6 +80,7 @@ public class GameController : MonoBehaviour {
 		if(planetsLeft <= 0 && bossNum < 1){
 			Instantiate (Boss, bossSpwnPos.transform.position, bossSpwnPos.transform.rotation);
 			bossNum ++;
+			Camera.main.SendMessage ("BossSpawned");
 		}
 	}
 	void OnGUI () {
