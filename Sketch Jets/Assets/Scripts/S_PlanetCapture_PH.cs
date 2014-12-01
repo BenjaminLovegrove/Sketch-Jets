@@ -4,7 +4,7 @@ using System.Collections;
 public class S_PlanetCapture_PH : MonoBehaviour {
 	
 	public SpriteRenderer texRenderer;
-	public float captureTimer = 10;
+	public float captureTimer = 15;
 	public bool captured = false;
 
 
@@ -28,8 +28,9 @@ public class S_PlanetCapture_PH : MonoBehaviour {
 			Camera.main.SendMessage("PlanetCapture");
 		}
 	}
-
+	/* Didn't like this without a way to make it not so fiddley.
 	void OnTriggerExit2D (Collider2D col) {
 		captureTimer = 5;
 	}
+	*/
 }
