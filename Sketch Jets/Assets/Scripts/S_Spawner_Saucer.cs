@@ -12,7 +12,7 @@ public class S_Spawner_Saucer : MonoBehaviour {
 		
 		if (saucerCD <= 0){
 			Instantiate (Saucer, transform.position, transform.rotation);
-			saucerCD = 45;
+			saucerCD = Random.Range (40,70);
 		}
 	}
 }

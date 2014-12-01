@@ -12,7 +12,7 @@ public class S_Spawner_Doppler : MonoBehaviour {
 
 		if (dopplerCD <= 0){
 			Instantiate (Doppler, transform.position, transform.rotation);
-			dopplerCD = 22;
+			dopplerCD = Random.Range (20,45);
 		}
 	}
 }

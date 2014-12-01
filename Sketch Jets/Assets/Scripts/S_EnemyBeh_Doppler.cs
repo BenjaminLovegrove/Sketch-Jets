@@ -4,7 +4,7 @@ using System.Collections;
 public class S_EnemyBeh_Doppler : MonoBehaviour {
 
 
-	public float Health = 50;
+	public float Health = 20;
 	public float Damage = 5;
 	public ParticleSystem Explosion;
 	public GameObject Bullet;

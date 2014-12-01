@@ -3,7 +3,7 @@ using System.Collections;
 
 public class S_EnemyBeh_Frigate : MonoBehaviour {
 
-	public float Health = 25;
+	public float Health = 40;
 	public float Damage = 5;
 	public ParticleSystem Explosion;
 	public GameObject Bullet;

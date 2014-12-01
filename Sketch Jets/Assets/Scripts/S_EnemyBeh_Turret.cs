@@ -8,7 +8,7 @@ public class S_EnemyBeh_Turret : MonoBehaviour {
 	public GameObject bltSpawn;
 	public float MinDistance = 10;
 	public float MaxDistance = 20;
-	public float Health = 20;
+	public float Health = 65;
 	public Transform myTransform;
 	public float rotationSpeed = 3;
 	public bool run = true;

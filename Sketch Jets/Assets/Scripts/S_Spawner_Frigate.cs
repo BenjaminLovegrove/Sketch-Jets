@@ -12,7 +12,7 @@ public class S_Spawner_Frigate : MonoBehaviour {
 		
 		if (frigateCD <= 0){
 			Instantiate (Frigate, transform.position, transform.rotation);
-			frigateCD = 32;
+			frigateCD = Random.Range (30,50);
 		}
 	}
 }

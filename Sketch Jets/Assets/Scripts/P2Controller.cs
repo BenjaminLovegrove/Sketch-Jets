@@ -102,7 +102,7 @@ public Object MuzzleFlash;
 				RaycastHit2D[] hits = Physics2D.RaycastAll(bltSpn.transform.position,transform.right);
 				foreach (RaycastHit2D hit in hits){
 					if (hit.collider != null){
-						hit.collider.gameObject.SendMessage("LaserHit", 2, SendMessageOptions.DontRequireReceiver);
+						hit.collider.gameObject.SendMessage("LaserHit", 1, SendMessageOptions.DontRequireReceiver);
 					}
 				}
 				line.SetPosition(0, transform.position);
@@ -274,13 +274,13 @@ public Object MuzzleFlash;
 	void OnTriggerEnter2D (Collider2D col) {
 		
 		if (col.gameObject.tag ==  "EnmyMG"){
-			Camera.main.SendMessage ("P2Damage", 5);
+			Camera.main.SendMessage ("P2Damage", 2.5f);
 			Instantiate (Explosion, col.transform.position, col.transform.rotation);
 			Destroy (col.gameObject);
 		}
 		
 		if (col.gameObject.tag ==  "EnmyRocket"){
-			Camera.main.SendMessage ("P2Damage", 25);
+			Camera.main.SendMessage ("P2Damage", 20);
 			Instantiate (Explosion, col.transform.position, col.transform.rotation);
 			Destroy (col.gameObject);
 		}
@@ -294,7 +294,7 @@ public Object MuzzleFlash;
 		
 		if (col.gameObject.tag ==  "Lasers"){
 			laserPickedUp = true;
-			laserAmmo += 100;
+			laserAmmo += 7;
 			PickupSound.SendMessage ("PickupSound");
 			Destroy (col.gameObject);
 		}
