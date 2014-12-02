@@ -20,7 +20,7 @@ public class S_BossBeh : MonoBehaviour {
 		Players = GameObject.FindGameObjectsWithTag ("Player");
 		
 		//Get shoot range of ship
-		range = Random.Range (6, 10);
+		range = Random.Range (9, 15);
 		
 	}
 	
