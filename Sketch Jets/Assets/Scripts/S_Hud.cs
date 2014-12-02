@@ -17,9 +17,14 @@ public class S_Hud : MonoBehaviour {
 	public GUIStyle guiStyle01;
 	public int Score;
 	public bool boss = false;
+	public P1Controller p1;
+	public P2Controller p2;
 
 	void Start() {
 		guiStyle01.fontSize = 30;
+		P1WepEquipedTxt.anchor = TextAnchor.MiddleLeft;
+		P2WepEquipedTxt.anchor = TextAnchor.MiddleRight;
+		
 	}
 
 	void Update () {
@@ -53,37 +58,37 @@ public class S_Hud : MonoBehaviour {
 		//Player1
 		if (P1WeaponEquiped == "MG"){
 			P1weaponSelected.guiTexture.texture = MachinegunTex;
-			P1WepEquipedTxt.text = "BA-CON \n MG";
+			P1WepEquipedTxt.text = "BA-CON - Machine Gun";
 		}
 		if (P1WeaponEquiped == "Rocket"){
 			P1weaponSelected.guiTexture.texture = RocketTex;
-			P1WepEquipedTxt.text = "BA-CON \n Rockets";
+			P1WepEquipedTxt.text = "BA-CON - Rockets - "  + p1.rocketAmmo.ToString("F1");
 		}
 		if (P1WeaponEquiped == "Laser"){
 			P1weaponSelected.guiTexture.texture = LaserTex;
-			P1WepEquipedTxt.text = "BA-CON \n Lasers";
+			P1WepEquipedTxt.text = "BA-CON - Lasers - "  + p1.laserAmmo.ToString("F1");
 		}
 		if (P1WeaponEquiped == "Gauss"){
 			P1weaponSelected.guiTexture.texture = GaussTex;
-			P1WepEquipedTxt.text = "BA-CON \n Gauss";
+			P1WepEquipedTxt.text = "BA-CON - GAUSS - "  + p1.gaussAmmo.ToString("F1");
 		}
 
 		//Player2
 		if (P2WeaponEquiped == "MG"){
 			P2weaponSelected.guiTexture.texture = MachinegunTex;
-			P2WepEquipedTxt.text = "ST-LHT \n MG";
+			P2WepEquipedTxt.text = "ST-LHT - Machine Gun";
 		}
 		if (P2WeaponEquiped == "Rocket"){
 			P2weaponSelected.guiTexture.texture = RocketTex;
-			P2WepEquipedTxt.text = "ST-LHT \n Rockets";
+			P2WepEquipedTxt.text = "ST-LHT - Rockets - "  + p2.rocketAmmo.ToString("F1");
 		}
 		if (P2WeaponEquiped == "Laser"){
 			P2weaponSelected.guiTexture.texture = LaserTex;
-			P2WepEquipedTxt.text = "ST-LHT \n Lasers";
+			P2WepEquipedTxt.text = "ST-LHT - Lasers - "  + p2.laserAmmo.ToString("F1");
 		}
 		if (P2WeaponEquiped == "Gauss"){
 			P2weaponSelected.guiTexture.texture = GaussTex;
-			P2WepEquipedTxt.text = "ST-LHT \n Gauss";
+			P2WepEquipedTxt.text = "ST-LHT - GAUSS - "  + p2.gaussAmmo.ToString("F1");
 		}
 	}
 

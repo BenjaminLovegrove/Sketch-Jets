@@ -17,7 +17,7 @@ public string currentAmmo;
 public string MGAmmo = "Unlimited";
 public GameObject Explosion;
 public 	float mgCooldown;
-public GUIText AmmoText;
+//public GUIText AmmoText;
 public float rocketCD;
 public float gaussCD;
 public float gaussStay;
@@ -41,7 +41,7 @@ public Object MuzzleFlash;
 
 	void Update () {
 
-		AmmoText.text = currentAmmo;
+		//AmmoText.text = currentAmmo;
 		rocketCD -= Time.deltaTime;
 		gaussCD -= Time.deltaTime;
 		gaussStay -= Time.deltaTime;
@@ -256,6 +256,7 @@ public Object MuzzleFlash;
 	}
 
 	void GUIDebug() {
+		/*
 		if (primaryWeapon == machineGun){
 			currentAmmo = MGAmmo.ToString();
 		}
@@ -268,6 +269,7 @@ public Object MuzzleFlash;
 		if(primaryWeapon == gauss){
 			currentAmmo = gaussAmmo.ToString();
 		}
+		*/
 	}
 
 
