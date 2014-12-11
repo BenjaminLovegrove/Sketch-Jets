@@ -15,21 +15,29 @@ public class S_Hud : MonoBehaviour {
 	public GUITexture P2weaponSelected;
 	public int planetsLeft;
 	public GUIStyle guiStyle01;
+	public GUIStyle guiStyle02;
 	public int Score;
 	public bool boss = false;
 	public P1Controller p1;
 	public P2Controller p2;
+	public  float instructions = 10f;
 
 	void Start() {
 		guiStyle01.fontSize = 30;
+		guiStyle02.fontSize = 20;
 		P1WepEquipedTxt.anchor = TextAnchor.MiddleLeft;
 		P2WepEquipedTxt.anchor = TextAnchor.MiddleRight;
+
+
 		
 	}
 
 	void Update () {
 
 		GUIweaponSelected();
+
+		instructions -= Time.deltaTime;
+		print (instructions.ToString());
 
 	}
 
@@ -50,6 +58,9 @@ public class S_Hud : MonoBehaviour {
 		GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.90f, 50, 50), "Score: " + Score.ToString (), guiStyle01); 
 		if (boss){
 			GUI.Label (new Rect (Screen.width / 2 - 70, Screen.height * 0.85f, 50, 50), "Boss Spawned!", guiStyle01); 
+		}
+		if (instructions > 0){
+			GUI.Label (new Rect ( Screen.width *.6f, Screen.height *.6f, 200,200), "Capture the planets to lure the boss! \n \n Hover over a planet to capture \n \n Movement and aiming - Analog Sticks \n Fire - Right trigger \n Change weapon - Left trigger", guiStyle02);
 		}
 	}
 
