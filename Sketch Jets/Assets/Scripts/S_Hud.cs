@@ -16,7 +16,7 @@ public class S_Hud : MonoBehaviour {
 	public int planetsLeft;
 	public GUIStyle guiStyle01;
 	public GUIStyle guiStyle02;
-	public int Score;
+	public static int Score;
 	public bool boss = false;
 	public P1Controller p1;
 	public P2Controller p2;
@@ -138,5 +138,9 @@ public class S_Hud : MonoBehaviour {
 
 	void BossSpawned(){
 		boss = true;
+	}
+
+	void EndGame (){
+		//Something for highscores and ending the game etc
 	}
 }

@@ -61,7 +61,7 @@ public class S_BossBeh : MonoBehaviour {
 			GameObject CurrentBlt = (GameObject) Instantiate (Bullet, transform.position,transform.rotation);
 			CurrentBlt.rigidbody2D.AddForce (dir * rigidbody2D.mass * 10 / Time.fixedDeltaTime);
 			Destroy (CurrentBlt, 7);
-			mgCooldown = 1f;
+			mgCooldown = 0.5f;
 		}
 
 		mgCooldown -= Time.deltaTime;
@@ -96,6 +96,6 @@ public class S_BossBeh : MonoBehaviour {
 	}
 
 	void LaserHit(int dmg){
-		Health -= dmg;
+		Health -= dmg / 2;
 	}
 }
