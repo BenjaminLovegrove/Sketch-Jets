@@ -84,7 +84,7 @@ public Object MuzzleFlash;
 			Instantiate (primaryWeapon, bltSpn.transform.position, bltSpn.transform.rotation);
 			rocketAmmo --;
 			currentAmmo = rocketAmmo.ToString();
-			rocketCD = 1;
+			rocketCD = 0.5f;
 		}
 		//Fires Machineguns
 		if (Input.GetButton("Fire2") && primaryWeapon == machineGun && mgCooldown < 0) {
