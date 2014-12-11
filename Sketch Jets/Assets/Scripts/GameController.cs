@@ -29,7 +29,6 @@ public class GameController : MonoBehaviour {
 		P2healthBarLength = 300; 
 		planets = GameObject.FindGameObjectsWithTag ("PlanetCapture");
 		planetsLeft = planets.Length;
-		print ("Total Planets: " + planetsLeft);
 		Camera.main.SendMessage ("PlanetCountStart", planetsLeft);
 	}
 	
@@ -53,13 +52,11 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Death (){
-		if (P1Health <= 0 && P1needRevive == false){
-			print ("Player1. You Have Died");
-			P1needRevive = true;
+		if (P1Health <= 0){
+			Application.LoadLevel ("0");
 		}
-		if (P2Health <= 0 && P2needRevive == false){
-			print ("Player2. You Have Died");
-			P2needRevive = true;
+		if (P2Health <= 0){
+			Application.LoadLevel ("0");
 		}
 	}
 
