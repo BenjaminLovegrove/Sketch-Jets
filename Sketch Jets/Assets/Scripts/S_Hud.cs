@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class S_Hud : MonoBehaviour {
 
@@ -16,7 +18,8 @@ public class S_Hud : MonoBehaviour {
 	public int planetsLeft;
 	public GUIStyle guiStyle01;
 	public GUIStyle guiStyle02;
-	public static int Score;
+	public int Score;
+	public int[] HighScores = new int[11];
 	public bool boss = false;
 	public P1Controller p1;
 	public P2Controller p2;
@@ -141,6 +144,17 @@ public class S_Hud : MonoBehaviour {
 	}
 
 	void EndGame (){
-		//Something for highscores and ending the game etc
+		//Get Highscores
+		for (int i = 0; i < 9; i++){
+			HighScores[i] = PlayerPrefs.GetInt(i.ToString());
+			HighScores[10] = Score;
+			Array.Sort (HighScores);
+		}
+		//Set New Highscores
+		for (int i = 0; i < 9; i++){
+			PlayerPrefs.SetInt(i.ToString(), HighScores[i]);
+		}
+		//Go to end screen
+		Application.LoadLevel (2);
 	}
 }

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraControllerBasic.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\HighScoreScreen.cs" />
      <Compile Include="Assets\Scripts\P1Controller.cs" />
      <Compile Include="Assets\Scripts\P2Controller.cs" />
      <Compile Include="Assets\Scripts\PlanetGravity.cs" />

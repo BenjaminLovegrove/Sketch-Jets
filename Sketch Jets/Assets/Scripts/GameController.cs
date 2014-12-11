@@ -53,10 +53,10 @@ public class GameController : MonoBehaviour {
 
 	void Death (){
 		if (P1Health <= 0){
-			Application.LoadLevel ("0");
+			Application.LoadLevel (0);
 		}
 		if (P2Health <= 0){
-			Application.LoadLevel ("0");
+			Application.LoadLevel (0);
 		}
 	}
 
