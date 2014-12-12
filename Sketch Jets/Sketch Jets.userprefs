@@ -1,15 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HighScoreScreen.cs">
-    <Files>
-      <File FileName="Assets\Scripts\S_BossBeh.cs" Line="89" Column="18" />
-      <File FileName="Assets\Scripts\P1Controller.cs" Line="85" Column="55" />
-      <File FileName="Assets\Scripts\S_Hud.cs" Line="19" Column="1" />
-      <File FileName="Assets\Scripts\GameController.cs" Line="78" Column="64" />
-      <File FileName="Assets\Scripts\S_EnemyBeh_Doppler.cs" Line="32" Column="76" />
-      <File FileName="Assets\Scripts\HighScoreScreen.cs" Line="28" Column="128" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
