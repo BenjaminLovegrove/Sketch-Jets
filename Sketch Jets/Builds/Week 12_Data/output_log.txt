@@ -10,19 +10,7 @@ Platform assembly: C:\Users\BenJay\Documents\GitHub\Sketch-Jets\Sketch Jets\Buil
 Loading C:\Users\BenJay\Documents\GitHub\Sketch-Jets\Sketch Jets\Builds\Week 12_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\BenJay\Documents\GitHub\Sketch-Jets\Sketch Jets\Builds\Week 12_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\BenJay\Documents\GitHub\Sketch-Jets\Sketch Jets\Builds\Week 12_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.048 seconds
+- Completed reload, in  0.041 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-UnloadTime: 0.322249 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1071.
-Total: 5.075578 ms (FindLiveObjects: 0.040356 ms CreateObjectMapping: 0.011444 ms MarkObjects: 0.137031 ms  DeleteObjects: 4.425055 ms)
-
-UnloadTime: 2.780379 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 142 unused Assets to reduce memory usage. Loaded Objects now: 128.
-Total: 5.712246 ms (FindLiveObjects: 0.014456 ms CreateObjectMapping: 0.013552 ms MarkObjects: 0.118961 ms  DeleteObjects: 4.751822 ms)
-

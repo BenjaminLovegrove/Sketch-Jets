@@ -19,11 +19,12 @@ public class S_Hud : MonoBehaviour {
 	public GUIStyle guiStyle01;
 	public GUIStyle guiStyle02;
 	public int Score;
-	public int[] HighScores = new int[11];
+	private int[] HighScores = new int[11];
 	public bool boss = false;
 	public P1Controller p1;
 	public P2Controller p2;
 	public  float instructions = 10f;
+	public bool endGame = false;
 
 	void Start() {
 		guiStyle01.fontSize = 30;
@@ -39,6 +40,10 @@ public class S_Hud : MonoBehaviour {
 		GUIweaponSelected();
 
 		instructions -= Time.deltaTime;
+
+		if (endGame == true){
+			EndGame();
+		}
 
 	}
 
@@ -144,17 +149,22 @@ public class S_Hud : MonoBehaviour {
 	}
 
 	void EndGame (){
+		endGame = true;
 		//Get Highscores
-		for (int i = 0; i < 9; i++){
+		for (int i = 0; i <= 9; i++){
 			HighScores[i] = PlayerPrefs.GetInt(i.ToString());
-			HighScores[10] = Score;
-			Array.Sort (HighScores);
+			if (i == 9){
+				HighScores[10] = Score;
+				Array.Sort (HighScores);
+			}
 		}
 		//Set New Highscores
-		for (int i = 0; i < 9; i++){
+		for (int i = 0; i <= 10; i++){
 			PlayerPrefs.SetInt(i.ToString(), HighScores[i]);
+			if (i == 10){
+				PlayerPrefs.Save();
+				Application.LoadLevel(2);
+			}
 		}
-		//Go to end screen
-		Application.LoadLevel (2);
 	}
 }
